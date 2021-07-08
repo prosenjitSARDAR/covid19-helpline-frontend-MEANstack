@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <a class="navbar-brand" [routerLink]="['']" routerLinkActive="router-link-active">Covid-19 Helpline</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ml-auto mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/oxygen']" routerLinkActive="active">Medical Oxygen</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/hospital']" routerLinkActive="active">Covid-19 Hospital</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/medicine']" routerLinkActive="active">Covid-19 Medicine</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/test-lab']" routerLinkActive="active">Covid-19 Test Laboratory</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/kitchen']" routerLinkActive="active">Community Kitchen</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/ambulance']" routerLinkActive="active">Ambulance Service</a>
+            </li>
+
+        </ul>
+
+
+        <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+            </li> -->
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item nav-link text-body cursor-pointer"
+                        (click)="openChangePasswordModal()">Change
+                        Password</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item nav-link text-danger cursor-pointer">Logout</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
