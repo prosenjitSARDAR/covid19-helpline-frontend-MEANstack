@@ -1,1 +1,69 @@
-<p>footer works!</p>
+<footer class="footer">
+    <div class="container">
+        <!-- <span class="text-muted">Place sticky footer content here.</span> -->
+        <div class="row text-center">
+
+            <div class="col-sm">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-dark font-weight-bold">Author: {{author_NAME}}</div>
+
+                        <div class="col-12 mt-1">
+                            <a href="mailto:{{author_Email}}">
+                                <img src="../../../assets/gmail-logo.png" height="30px" width="30px" alt="Gmail"
+                                    class="img-fluid mx-2">
+                            </a>
+                            <a href="{{author_LinkedIn}}" target="_blank">
+                                <img src="../../../assets/LI-In-Bug.png" height="30px" width="30px" alt="LinkedIn"
+                                    class="img-fluid mx-2" title="{{author_LinkedIn}}">
+                            </a>
+                            <a href="{{author_GitHub}}" target="_blank">
+                                <img src="../../../assets/GitHub-32px.png" height="30px" width="30px" alt="GitHub"
+                                    class="img-fluid mx-2" title="{{author_GitHub}}">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col font-weight-bold">
+                <span class="text-danger">**Disclaimer**</span><br>
+                This is not a real covid-19 helpline website.
+                Click <span class="text-danger cursor-pointer" (click)="disclaimer()">here</span> to read the complete
+                disclaimer.
+            </div>
+
+            <div class="col-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-danger font-weight-bold">Important Links</div>
+
+                        <div class="col-12">
+                            <a href="https://www.cowin.gov.in/" target="_blank">
+                                <img src="../../../assets/cowin-logo.png" height="75px" width="75px" alt="Cowin"
+                                    class="img-fluid mx-2" title="www.cowin.gov.in">
+                            </a>
+                            <a href="https://www.mohfw.gov.in/" target="_blank">
+                                <img src="../../../assets/MoHFW-logo.png" height="60px" width="75px"
+                                    alt="Ministry of Health and Family Welfare" class="img-fluid mx-2"
+                                    title="www.mohfw.gov.in">
+                            </a>
+                            <a href="https://www.nhp.gov.in/" target="_blank">
+                                <img src="../../../assets/nhp-logo.png" height="50px" width="60px"
+                                    alt="National Health Portal" class="img-fluid mx-2" title="www.nhp.gov.in">
+                            </a>
+                            <a href="https://covid19.who.int/" target="_blank">
+                                <img src="../../../assets/who-logo.png" height="40px" width="40px"
+                                    alt="World Health Organisation" class="img-fluid mx-2" title="covid19.who.int">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>

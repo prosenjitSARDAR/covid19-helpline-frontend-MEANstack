@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Config } from 'src/app/config';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  author_NAME: String = "Prosenjit Sardar";
+  author_Email: String = Config.author_GMAIL;
+  author_GitHub: String = Config.author_GITHUB;
+  author_LinkedIn: String = Config.author_LINKEDIN;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  disclaimer() {
+    window.alert("Disclaimer");
   }
 
 }
