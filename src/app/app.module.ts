@@ -7,12 +7,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //MODULES
 import { ThirdPartyPackageModule } from './modules/third-party-package/third-party-package.module';
+import { ServiceModule } from './modules/service/service.module';
 
 //ROOT COMPONENT
 import { AppComponent } from './app.component';
 
 //CUSTOM COMPONENTS
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CovidTrackerComponent } from './components/covid-tracker/covid-tracker.component';
 import { OxygenComponent } from './components/oxygen/oxygen.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
@@ -26,6 +28,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   declarations: [
     AppComponent,
     NavbarComponent,
+    CovidTrackerComponent,
     OxygenComponent,
     HospitalComponent,
     MedicineComponent,

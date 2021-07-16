@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:4000/api',
+  apiUrl: 'http://localhost:3000/api',
   BASE_URL: 'http://localhost:4200/',
 
   /* PERSONAL URLs */

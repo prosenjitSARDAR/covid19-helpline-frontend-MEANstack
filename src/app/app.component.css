@@ -2,5 +2,11 @@
     padding: 20px;
 }
 .footer {
-    background-color: lightgray;
+    background-color: #005f69;
+}
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
 }

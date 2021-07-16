@@ -4,12 +4,21 @@
 <!-- NAVBAR -->
 <app-navbar></app-navbar>
 
-<!-- MAIN CONTENT -->
+<!-- COVID TRACKER  -->
 <div class="container">
-    <router-outlet></router-outlet>
+    <app-covid-tracker></app-covid-tracker>
 </div>
 
-<!-- FOOTER -->
-<div class="footer fixed-bottom">
-    <app-footer></app-footer>
+<div class="flex-wrapper">
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+    
 </div>
