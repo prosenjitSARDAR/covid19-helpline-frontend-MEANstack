@@ -7,6 +7,8 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { OxygenComponent } from './components/oxygen/oxygen.component';
 import { TestLabComponent } from './components/test-lab/test-lab.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -44,6 +46,16 @@ const routes: Routes = [
     path: 'ambulance',
     component: AmbulanceComponent,
     data: { title: 'Covid-19 Ambulance Service' }
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    data: { title: 'Registration' }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
   },
   {
     path: '**',

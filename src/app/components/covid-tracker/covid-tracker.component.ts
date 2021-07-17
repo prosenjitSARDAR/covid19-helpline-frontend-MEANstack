@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CovidTrackerService } from './../../modules/service/all services/covid-tracker.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { CovidTrackerService } from './../../modules/service/all services/covid-
 })
 export class CovidTrackerComponent implements OnInit {
 
+  route: string;
   covidData: any = {};
 
-  constructor(private _covidTrackerService: CovidTrackerService) { }
+  constructor(private _covidTrackerService: CovidTrackerService, private router: Router) {  }
 
   ngOnInit(): void {
     this.getDailyCovidData();
@@ -19,7 +21,7 @@ export class CovidTrackerComponent implements OnInit {
 
   getDailyCovidData() {
     this._covidTrackerService.getDailyCovidData().subscribe((res) => {
-      if(res['success'] == true) {
+      if (res['success'] == true) {
         this.covidData = res['data'][0];
       }
     }, (error) => {
