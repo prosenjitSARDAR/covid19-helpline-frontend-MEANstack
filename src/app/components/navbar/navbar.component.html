@@ -33,30 +33,29 @@
 
 
         <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
-            </li> -->
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Sign up</a>
+                <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active"
+                    *ngIf="!_authService.isLoggedIn()">Sign up</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active"
+                    *ngIf="!_authService.isLoggedIn()">Login</a>
             </li>
 
-            <!-- <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="_authService.isLoggedIn()">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Admin
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item nav-link text-body cursor-pointer"
-                        (click)="openChangePasswordModal()">Change
-                        Password</a>
+                    <a class="dropdown-item nav-link text-body cursor-pointer" (click)="goToEditProfile()">Service
+                        profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item nav-link text-danger cursor-pointer">Logout</a>
+                    <a class="dropdown-item nav-link text-danger cursor-pointer"
+                        (click)="_authService.logout()">Logout</a>
                 </div>
-            </li> -->
+            </li>
         </ul>
 
     </div>

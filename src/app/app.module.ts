@@ -23,7 +23,12 @@ import { AmbulanceComponent } from './components/ambulance/ambulance.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+//GUARDS
+import { AuthGuard } from './guards/auth.guard';
+import { LoggedInGuard } from './guards/logged-in.guard';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FooterComponent,
     SignupComponent,
     LoginComponent,
+    EditProfileComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -49,7 +55,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     ThirdPartyPackageModule
   ],
-  providers: [],
+  providers: [AuthGuard, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

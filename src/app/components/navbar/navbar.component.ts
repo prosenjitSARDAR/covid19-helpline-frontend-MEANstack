@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/service/all services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-
-  openChangePasswordModal() {
-
+  goToEditProfile() {
+    this.router.navigate(['/edit-profile']);
   }
 
 }

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //3RD PARTY PACKAGE MODULE
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -12,12 +14,16 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
   imports: [
     CommonModule,
     NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ timeOut: 3000, closeButton: true }),
     LoadingBarModule,
     LoadingBarRouterModule,
     LoadingBarHttpClientModule
   ],
   exports: [
     NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule,
     LoadingBarModule,
     LoadingBarRouterModule,
     LoadingBarHttpClientModule

@@ -3,19 +3,19 @@
         <div class="card rounded-0">
 
             <div class="card-header" style="background-color: lightgray;">
-                <h1 class="mb-0">Register your service!</h1>
+                <h1 class="mb-0">Service Profile</h1>
             </div>
 
             <div class="card-body">
 
-                <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label><span class="text font-weight-bold text-danger">* &nbsp;</span>Your name</label>
                             <input type="text" class="form-control" formControlName="name">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">Please enter
+                                *ngIf="profileForm.get('name').invalid && profileForm.get('name').touched">Please enter
                                 your
                                 name</small>
                         </div>
@@ -25,7 +25,7 @@
                             <input type="text" class="form-control" formControlName="resourceName"
                                 placeholder="Ex: ABC Medical Store..">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('resourceName').invalid && signupForm.get('resourceName').touched">Please
+                                *ngIf="profileForm.get('resourceName').invalid && profileForm.get('resourceName').touched">Please
                                 enter your service
                                 name</small>
                         </div>
@@ -46,7 +46,7 @@
                                 <option value="{{serviceCategory[5]}}">Ambulance Service</option>
                             </select>
                             <small class="text-danger"
-                                *ngIf="signupForm.get('category').invalid && signupForm.get('category').touched">Please
+                                *ngIf="profileForm.get('category').invalid && profileForm.get('category').touched">Please
                                 select a service category</small>
                         </div>
 
@@ -58,7 +58,7 @@
                                 <option [ngValue]='false'>Unavailable</option>
                             </select>
                             <small class="text-danger"
-                                *ngIf="signupForm.get('availibility').invalid && signupForm.get('availibility').touched">Please
+                                *ngIf="profileForm.get('availibility').invalid && profileForm.get('availibility').touched">Please
                                 select availibility status</small>
                         </div>
                     </div>
@@ -70,7 +70,8 @@
                             <input type="email" style="text-transform:lowercase" class="form-control"
                                 formControlName="email">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">Please enter
+                                *ngIf="profileForm.get('email').invalid && profileForm.get('email').touched">Please
+                                enter
                                 a
                                 valid email address</small>
                         </div>
@@ -79,7 +80,7 @@
                             <label><span class="text font-weight-bold text-danger">* &nbsp;</span>Password</label>
                             <input type="password" class="form-control" formControlName="password">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">Please
+                                *ngIf="profileForm.get('password').invalid && profileForm.get('password').touched">Please
                                 enter
                                 a password (password must be at least 6 characters long)</small>
                         </div>
@@ -89,7 +90,7 @@
                             <input type="number" min="0" step="false" class="form-control"
                                 formControlName="contact_number">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('contact_number').invalid && signupForm.get('contact_number').touched">Please
+                                *ngIf="profileForm.get('contact_number').invalid && profileForm.get('contact_number').touched">Please
                                 enter a valid contact number</small>
                         </div>
 
@@ -101,7 +102,7 @@
                             <label><span class="text font-weight-bold text-danger">* &nbsp;</span>Address</label>
                             <input type="text" class="form-control" formControlName="address">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('address').invalid && signupForm.get('address').touched">Please
+                                *ngIf="profileForm.get('address').invalid && profileForm.get('address').touched">Please
                                 enter
                                 an address</small>
                         </div>
@@ -110,7 +111,8 @@
                             <label><span class="text font-weight-bold text-danger">* &nbsp;</span>City</label>
                             <input type="text" class="form-control" formControlName="city">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('city').invalid && signupForm.get('city').touched">Please enter a
+                                *ngIf="profileForm.get('city').invalid && profileForm.get('city').touched">Please enter
+                                a
                                 city
                                 name</small>
                         </div>
@@ -119,7 +121,7 @@
                             <label><span class="text font-weight-bold text-danger">* &nbsp;</span>Pincode</label>
                             <input type="number" min="0" step="false" class="form-control" formControlName="pincode">
                             <small class="text-danger"
-                                *ngIf="signupForm.get('pincode').invalid && signupForm.get('pincode').touched">Please
+                                *ngIf="profileForm.get('pincode').invalid && profileForm.get('pincode').touched">Please
                                 enter
                                 a pincode</small>
                         </div>
@@ -133,20 +135,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group form-check col-md-12">
-                        <input type="checkbox" class="form-check-input" formControlName="checkbox">
-                        <label class="form-check-label">
-                            <span class="text font-weight-bold text-danger">* &nbsp;</span>
-                            I acknowledge that I have read and understand the 'Disclaimer' and agree to the 'Terms &
-                            Conditions'.
-                        </label>
-                    </div>
-
                     <p class="text float-left"> &#40;<span class="text font-weight-bold text-danger">*</span>&#41;
                         Mandatory
                         Fields</p>
                     <button type="submit" class="btn btn-outline-primary float-right mx-1"
-                        [disabled]="signupForm.invalid">Submit</button>
+                        [disabled]="profileForm.invalid">Edit</button>
 
                     <button class="btn btn-outline-danger float-right mx-1" (click)="goBackToHome()">Cancel</button>
 

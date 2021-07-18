@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+//COMPONENTS
 import { AmbulanceComponent } from './components/ambulance/ambulance.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
@@ -9,7 +10,12 @@ import { OxygenComponent } from './components/oxygen/oxygen.component';
 import { TestLabComponent } from './components/test-lab/test-lab.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+//GUARDS
+import { AuthGuard } from './guards/auth.guard';
+import { LoggedInGuard } from './guards/logged-in.guard';
 
 const routes: Routes = [
   {
@@ -50,12 +56,20 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    data: { title: 'Registration' }
+    data: { title: 'Registration' },
+    canActivate: [LoggedInGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    data: { title: 'Login' }
+    data: { title: 'Login' },
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    data: { title: 'Service Profile' },
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
