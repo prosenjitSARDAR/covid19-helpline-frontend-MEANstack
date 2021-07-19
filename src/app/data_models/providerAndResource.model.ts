@@ -1,7 +1,7 @@
 export interface ProviderAndResourceDetails {
     name: String,
     email: String,
-    password: String,
+    password?: String,
     resourceName: String,
     category: String,
     address: String,

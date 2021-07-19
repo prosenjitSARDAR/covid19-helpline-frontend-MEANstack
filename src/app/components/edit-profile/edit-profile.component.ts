@@ -1,8 +1,9 @@
+import { ProviderAndResourceDetails } from './../../data_models/providerAndResource.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/modules/service/all services/auth.service';
+import { DataService } from './../../modules/service/all services/data.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,23 +14,24 @@ export class EditProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   serviceCategory: Array<String> = ["oxygen", "hospital", "medicine", "test-lab", "kitchen", "ambulance"];
+  profileDetails: ProviderAndResourceDetails;
 
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    public _authService: AuthService,
+    public _dataService: DataService,
     private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
     this.createProfileForm();
+    this.getProfileDetails();
   }
 
   createProfileForm() {
     this.profileForm = this.formBuilder.group({
       'name': ['', [Validators.required, Validators.minLength(3)]],
       'email': ['', [Validators.required, Validators.email, Validators.maxLength(35), Validators.minLength(4)]],
-      'password': ['', [Validators.required, Validators.minLength(6)]],
       'resourceName': ['', [Validators.required, Validators.minLength(3)]],
       'category': ['', [Validators.required, Validators.minLength(3)]],
       'address': ['', [Validators.required, Validators.minLength(3)]],
@@ -44,16 +46,58 @@ export class EditProfileComponent implements OnInit {
   get profileFormValue() {
     return this.profileForm.value;
   }
+  reset() {
+    this.profileForm.reset();
+  }
+
+  getProfileDetails() {
+    this._dataService.getProfileDetails().subscribe((res) => {
+      if (res['success'] == true) {
+        this.profileDetails = res['data'];
+        this.setProfileForm(this.profileDetails);
+      } else {
+        this.toastr.error('Please try again later', "Error! something went wrong")
+      }
+    }, (error) => {
+      this.toastr.error(error, 'Error! Something went wrong');
+    })
+  }
+
+  setProfileForm(data) {
+    this.profileForm.patchValue({
+      name: data['name'],
+      email: data['email'],
+      resourceName: data['resourceName'],
+      category: data['category'],
+      address: data['address'],
+      city: data['city'],
+      pincode: data['pincode'],
+      contact_number: data['contact_number'],
+      availibility: data['availibility'],
+      remarks: data['remarks']
+    })
+  }
 
   onSubmit() {
+    if (!this.profileForm.valid || !this.profileForm.dirty) {
+      return false;
+    }
 
+    let Details: ProviderAndResourceDetails = this.profileForm.value;
+
+    this._dataService.updateProfileDetails(Details).subscribe((res) => {
+      if (res['success'] == true) {
+        this.reset();
+        this.setProfileForm(res['data']);
+        this.toastr.success(res['message'], 'Done!');
+      }
+    }, (error) => {
+      this.toastr.error(error, 'Error! Something went wrong');
+    })
   }
 
   goBackToHome() {
     this.router.navigate(['/']);
-  }
-  goToLogin() {
-    this.router.navigate(['/login']);
   }
 
 }

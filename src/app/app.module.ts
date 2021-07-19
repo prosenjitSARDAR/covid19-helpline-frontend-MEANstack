@@ -30,6 +30,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AuthGuard } from './guards/auth.guard';
 import { LoggedInGuard } from './guards/logged-in.guard';
 
+//INTERCEPTORS
+import { TokenInterceptorService } from './interceptors/token-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,16 @@ import { LoggedInGuard } from './guards/logged-in.guard';
     HttpClientModule,
     ThirdPartyPackageModule
   ],
-  providers: [AuthGuard, LoggedInGuard],
+  providers: [
+    AuthGuard,
+    LoggedInGuard,
+    TokenInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
