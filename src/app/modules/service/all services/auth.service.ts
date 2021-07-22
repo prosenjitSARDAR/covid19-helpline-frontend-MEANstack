@@ -26,6 +26,11 @@ export class AuthService {
       .pipe(catchError(this.handleError))
   }
 
+  changePassword(data: { currentPassword: String, newPassword: String, confirmPassword: String }): Observable<any> {
+    return this.http.post<any>(`${this.API_URL}/auth/change-password`, data)
+      .pipe(catchError(this.handleError))
+  }
+
   handleError(error) {
     return throwError(error.message || 'Sorry! An unknown error occured. Please try again.')
   }

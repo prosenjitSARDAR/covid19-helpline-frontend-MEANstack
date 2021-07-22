@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       if (res['success'] == true) {
         localStorage.setItem('token', res['token']);
         this.reset();
-        this.toastr.success(res['message'], 'Done!');
+        this.toastr.success("Welcome", 'Done!');
         this.goBackToHome();
       }
     }, (error) => {

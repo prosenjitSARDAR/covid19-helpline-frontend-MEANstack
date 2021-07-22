@@ -11,6 +11,7 @@ import { TestLabComponent } from './components/test-lab/test-lab.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 //GUARDS
@@ -68,7 +69,13 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     component: EditProfileComponent,
-    data: { title: 'Service Profile' },
+    data: { title: 'Profile' },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    data: { title: 'Password' },
     canActivate: [AuthGuard]
   },
   {

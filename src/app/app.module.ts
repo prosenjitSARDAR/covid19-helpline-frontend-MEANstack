@@ -24,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 //GUARDS
@@ -48,6 +49,7 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     SignupComponent,
     LoginComponent,
     EditProfileComponent,
+    ChangePasswordComponent,
     PageNotFoundComponent
   ],
   imports: [
