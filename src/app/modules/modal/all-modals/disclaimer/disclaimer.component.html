@@ -1,0 +1,25 @@
+<!-- MODAL HEADER -->
+<div class="modal-header">
+    <h4 class="modal-title text-danger">Disclaimer</h4>
+
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- MODAL BODY -->
+<div class="modal-body text-center">
+    <h5 class="text-danger">Please Read This Statement Carefully</h5>
+    <p class="text-justify font-weight-bold">
+        The website currently you're visiting is not a real Covid-19 Helpline Web Application.
+        All the data which are included in this web application ('Covid-19 Helpline') are 'unauthentic', 'unreal' &
+        'unverified'. We request you to exercise caution when engaging with these data or resources. This web
+        application ('Covid-19 Helpline') is a personal project. You can clone this project repository from GitHub.
+    </p>
+</div>
+
+
+<!-- MODAL FOOTER -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Close click')">I understand</button>
+</div>

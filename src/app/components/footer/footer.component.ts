@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Config } from 'src/app/config';
+import { ModalService } from 'src/app/modules/modal/modal-service/modal.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,13 +14,13 @@ export class FooterComponent implements OnInit {
   author_GitHub: String = Config.author_GITHUB;
   author_LinkedIn: String = Config.author_LINKEDIN;
 
-  constructor() { }
+  constructor(private _modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
   disclaimer() {
-    window.alert("Disclaimer");
+    this._modalService.disclaimerModal();
   }
 
 }
