@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { CovidTrackerService } from './../../modules/service/all services/covid-tracker.service';
 
 @Component({
@@ -9,10 +9,22 @@ import { CovidTrackerService } from './../../modules/service/all services/covid-
 })
 export class CovidTrackerComponent implements OnInit {
 
-  route: string;
+  hiddenMode: Boolean = false;
+  routeUrl: string;
   covidData: any = {};
 
-  constructor(private _covidTrackerService: CovidTrackerService, private router: Router) {  }
+  constructor(private _covidTrackerService: CovidTrackerService, private router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.routeUrl = event.url;
+        if (this.routeUrl == '/change-password' || this.routeUrl == '/edit-profile' || this.routeUrl == '/signup' || this.routeUrl == '/login') {
+          this.hiddenMode = true;
+        } else {
+          this.hiddenMode = false;
+        }
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.getDailyCovidData();

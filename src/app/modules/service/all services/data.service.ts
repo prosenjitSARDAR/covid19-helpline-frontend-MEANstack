@@ -1,5 +1,5 @@
 import { ProviderAndResourceDetails } from './../../../data_models/providerAndResource.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -25,7 +25,7 @@ export class DataService {
       .pipe(catchError(this.handleError))
   }
 
-  handleError(error) {
+  handleError(error: HttpErrorResponse) {
     return throwError(error.message || 'Sorry! An unknown error occured. Please try again.')
   }
 

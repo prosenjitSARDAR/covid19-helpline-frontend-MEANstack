@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
@@ -31,7 +31,7 @@ export class AuthService {
       .pipe(catchError(this.handleError))
   }
 
-  handleError(error) {
+  handleError(error: HttpErrorResponse) {
     return throwError(error.message || 'Sorry! An unknown error occured. Please try again.')
   }
 
