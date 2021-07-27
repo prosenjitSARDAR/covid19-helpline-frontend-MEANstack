@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../modules/service/all services/auth.service';
 import { ProviderAndResourceDetails } from './../../data_models/providerAndResource.model';
 import { ToastrService } from 'ngx-toastr';
+import { ModalService } from 'src/app/modules/modal/modal-service/modal.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     public _authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _modalService: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +76,12 @@ export class SignupComponent implements OnInit {
   }
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+  openDisclaimer() {
+    this._modalService.disclaimerModal();
+  }
+  openTermsConditions() {
+    this._modalService.termsConditionsModal();
   }
 
 }

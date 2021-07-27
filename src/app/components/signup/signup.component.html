@@ -137,8 +137,11 @@
                         <input type="checkbox" class="form-check-input" formControlName="checkbox">
                         <label class="form-check-label">
                             <span class="text font-weight-bold text-danger">* &nbsp;</span>
-                            I acknowledge that I have read and understand the 'Disclaimer' and agree to the 'Terms &
-                            Conditions'.
+                            I acknowledge that I have read and understand the
+                            <span class="text-danger cursor-pointer" (click)="openDisclaimer()">'Disclaimer'</span>
+                            and agree to the
+                            <span class="text-danger cursor-pointer" (click)="openTermsConditions()">'Terms &
+                                Conditions'</span>.
                         </label>
                     </div>
 
