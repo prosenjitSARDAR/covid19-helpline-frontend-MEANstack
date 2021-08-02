@@ -25,8 +25,13 @@ export class DataService {
       .pipe(catchError(this.handleError))
   }
 
+  getResources(category: string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/data/resource/${category}`, { 'headers': this.headers })
+      .pipe(catchError(this.handleError))
+  }
+
   handleError(error: HttpErrorResponse) {
-    return throwError(error.message || 'Sorry! An unknown error occured. Please try again.')
+    return throwError(error['error']['errors'] || error['error']['error']['message'] || 'Sorry! An unknown error occured. Please try again.')
   }
 
 

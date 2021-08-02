@@ -6,49 +6,38 @@
 <!-- Cards/Main Content Starts From Here -->
 <div class="row row-cols-1 row-cols-md-3">
 
-    <div class="col mb-4">
-        <div class="card h-100">
+    <div class="col mb-4" *ngFor="let resource of resources">
+        <div class="card h-100 border">
 
-            <div class="card-body border text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rem dolorem ea in fuga! Minus libero nostrum, nobis amet sunt quidem quas fugiat,
-                suscipit, dicta ut veniam obcaecati tempore asperiores voluptates?
+            <div class="col-md-12 card-body border text-justify">
+                <p>
+                    <span class="font-weight-bold">SERVICE NAME:&nbsp;</span><span>{{resource.resourceName}}</span><br>
+                    <span class="font-weight-bold">ADDRESS:&nbsp;</span><span>{{resource.address}}</span><br>
+                    <span class="font-weight-bold">CITY:&nbsp;</span><span>{{resource.city}}</span><br>
+                    <span class="font-weight-bold">PINCODE:&nbsp;</span><span>{{resource.pincode}}</span><br>
+
+                    <span class="font-weight-bold">CONTACT
+                        NUMBER:&nbsp;</span><span>{{resource.contact_number}}</span><br>
+
+                    <span class="font-weight-bold">AVAILIBILITY:&nbsp;</span><span
+                        class="font-weight-bold {{resource.availibility == true? 'text-success':'text-danger'}}">{{resource.availibility
+                        == true? "AVAILABLE" : "UNAVAILABLE"}}</span><br>
+
+                    <span class="font-weight-bold">REMARKS:&nbsp;</span><span>{{resource.remarks}}</span>
+                </p>
             </div>
 
         </div>
     </div>
-
-    <div class="col mb-4">
-        <div class="card h-100">
-
-            <div class="card-body border text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rem dolorem ea in fuga! Minus libero nostrum, nobis amet sunt quidem quas fugiat,
-                suscipit, dicta ut veniam obcaecati tempore asperiores voluptates?
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card h-100">
-
-            <div class="card-body border text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rem dolorem ea in fuga! Minus libero nostrum, nobis amet sunt quidem quas fugiat,
-                suscipit, dicta ut veniam obcaecati tempore asperiores voluptates?
-            </div>
-
-        </div>
-    </div>
-
 
 </div>
+
+
 <!-- Cards/Main Content Ends Here -->
 
 
 <!-- If No Service Found -->
-<!-- <div class="jumbotron text-center text-danger my-5">
+<div class="jumbotron text-center text-danger my-5" *ngIf="!resources || resources.length == 0">
     <h2>Sorry! No Data Found</h2>
-</div> -->
+</div>
 <!-- If No Service Found Ends here-->

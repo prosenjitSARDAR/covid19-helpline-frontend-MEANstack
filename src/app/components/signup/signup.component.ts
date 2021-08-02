@@ -55,6 +55,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (!this.signupForm.valid) {
+      this.toastr.error("Invalid data. Please try again", 'Error!');
       return false;
     }
 
@@ -67,7 +68,7 @@ export class SignupComponent implements OnInit {
         this.goToLogin();
       }
     }, (error) => {
-      this.toastr.error(error, 'Error! Something went wrong');
+      this.toastr.error(error, 'Error!');
     })
   }
 

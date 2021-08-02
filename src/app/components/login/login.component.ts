@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         this.goBackToHome();
       }
     }, (error) => {
-      this.toastr.error(error, 'Error! Something went wrong');
+      this.toastr.error(error, 'Error!');
     })
 
   }

@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse) {
-    return throwError(error.message || 'Sorry! An unknown error occured. Please try again.')
+    return throwError(error['error']['errors'] || error['error']['error']['message'] || 'Sorry! An unknown error occured. Please try again.')
   }
 
   //if 'token' exist in localStorage it will return 'true' else 'false'
