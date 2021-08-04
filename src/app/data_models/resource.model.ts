@@ -1,11 +1,11 @@
 export interface ResourceDetails {
-    resourceName: String,
-    category: String,
-    address: String,
-    city: String,
+    resourceName: string,
+    category: string,
+    address: string,
+    city: string,
     pincode: Number,
     contact_number: Number,
     availibility: Boolean,
-    remarks?: String,
-    updatedAt?: String
+    remarks?: string,
+    updatedAt?: string
 }

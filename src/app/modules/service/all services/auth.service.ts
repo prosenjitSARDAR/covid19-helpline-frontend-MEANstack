@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { ProviderAndResourceDetails } from './../../../data_models/providerAndResource.model';
+import { Config } from '../../../config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private API_URL = environment.apiUrl;
+  private API_URL = Config.backendAPIUrl;
   private headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');
 
   constructor(private http: HttpClient, private router: Router) { }

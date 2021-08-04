@@ -9,14 +9,27 @@ import { ModalService } from 'src/app/modules/modal/modal-service/modal.service'
 })
 export class FooterComponent implements OnInit {
 
-  author_NAME: String = "Prosenjit Sardar";
-  author_Email: String = Config.author_GMAIL;
-  author_GitHub: String = Config.author_GITHUB;
-  author_LinkedIn: String = Config.author_LINKEDIN;
+  private author_NAME: string = "Prosenjit Sardar";
+  private author_GMAIL: string = "prosenjit19111995@gmail.com";
+  private author_GITHUB: string = "https://github.com/prosenjitSARDAR";
+  private author_LINKEDIN: string = "https://www.linkedin.com/in/prosenjitsardar/";
 
   constructor(private _modalService: ModalService) { }
 
   ngOnInit(): void {
+  }
+
+  authorName() {
+    return this.author_NAME;
+  }
+  authorEmail() {
+    return this.author_GMAIL;
+  }
+  authorGitHub() {
+    return this.author_GITHUB;
+  }
+  authorLinkedin() {
+    return this.author_LINKEDIN;
   }
 
   disclaimer() {

@@ -1,13 +1,13 @@
 export interface ProviderAndResourceDetails {
-    name: String,
-    email: String,
-    password?: String,
-    resourceName: String,
-    category: String,
-    address: String,
-    city: String,
+    name: string,
+    email: string,
+    password?: string,
+    resourceName: string,
+    category: string,
+    address: string,
+    city: string,
     pincode: Number,
     contact_number: Number,
     availibility: Boolean,
-    remarks?: String
+    remarks?: string
 }

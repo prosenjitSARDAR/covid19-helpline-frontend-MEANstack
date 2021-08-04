@@ -2,14 +2,14 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { Config } from '../../../config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CovidTrackerService {
 
-  private API_URL = environment.apiUrl;
+  private API_URL = Config.backendAPIUrl;
   private headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');
 
   constructor(private http: HttpClient) { }
