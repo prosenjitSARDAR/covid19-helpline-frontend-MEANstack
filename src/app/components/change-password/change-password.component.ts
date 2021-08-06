@@ -49,11 +49,11 @@ export class ChangePasswordComponent implements OnInit {
 
     this._authService.changePassword(data).subscribe((res) => {
       if (res['success'] == true) {
-        this.toastr.success(res['message'], 'Done!');
+        this.toastr.success(res['message'], 'Success!');
         this._authService.logout();
       }
     }, (error) => {
-      this.toastr.error(error, 'Error! Something went wrong');
+      this.toastr.error(error, 'Error!');
       this.passwordForm.reset();
     })
 

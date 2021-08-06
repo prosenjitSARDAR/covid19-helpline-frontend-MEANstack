@@ -56,10 +56,10 @@ export class EditProfileComponent implements OnInit {
         this.profileDetails = res['data'];
         this.setProfileForm(this.profileDetails);
       } else {
-        this.toastr.error('Please try again later', "Error! something went wrong")
+        this.toastr.error('Please try again later', "Error!")
       }
     }, (error) => {
-      this.toastr.error(error, 'Error! Something went wrong');
+      this.toastr.error(error, 'Error!');
     })
   }
 
@@ -89,10 +89,10 @@ export class EditProfileComponent implements OnInit {
       if (res['success'] == true) {
         this.reset();
         this.setProfileForm(res['data']);
-        this.toastr.success(res['message'], 'Done!');
+        this.toastr.success(res['message'], 'Success!');
       }
     }, (error) => {
-      this.toastr.error(error, 'Error! Something went wrong');
+      this.toastr.error(error, 'Error!');
     })
   }
 
