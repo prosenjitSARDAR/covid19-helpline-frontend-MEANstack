@@ -1,6 +1,6 @@
 //BUILT-IN MODULES
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -60,6 +60,7 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     HttpClientModule,
     ThirdPartyPackageModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     AuthGuard,
     LoggedInGuard,

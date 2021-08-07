@@ -3,6 +3,9 @@
     <h1>Covid-19 Test Laboratory</h1>
 </div>
 
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#0b1dec" type="ball-clip-rotate" [fullScreen]="true">
+</ngx-spinner>
+
 <!-- Cards/Main Content Starts From Here -->
 <div class="row row-cols-1 row-cols-md-3">
 
@@ -37,7 +40,7 @@
 
 
 <!-- If No Service Found -->
-<div class="jumbotron text-center text-danger my-5" *ngIf="!resources || resources.length == 0">
+<div class="jumbotron text-center text-danger my-5" *ngIf="noResource == true">
     <h2>Sorry! No Data Found</h2>
 </div>
 <!-- If No Service Found Ends here-->
